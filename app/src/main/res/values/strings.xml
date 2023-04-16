@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Memory Game</string>
+    <string name="card_reverse">Card Reversed</string>
+    <string name="game_won">You has won the game in</string>
+    <string name="game_lost">You has lost the game</string>
+    <string name="start">Start</string>
+    <string name="restart_level">Restart Level</string>
+    <string name="matches">Matches : </string>
+    <string name="zerostring">0</string>
+    <string name="level">Level</string>
+
+</resources>
