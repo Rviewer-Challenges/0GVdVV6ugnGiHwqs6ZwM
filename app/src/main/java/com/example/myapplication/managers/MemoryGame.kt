@@ -8,14 +8,13 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.LinearLayout
 import com.example.myapplication.constants.Constants
-import com.example.myapplication.models.GameMemoryItem
-import com.example.myapplication.models.Level
 import com.example.myapplication.events.GameOverListener
 import com.example.myapplication.events.MatchCardsListener
 import com.example.myapplication.models.Box
+import com.example.myapplication.models.GameMemoryItem
 
 
-class MemoryGame(private val context: Context, level: Level) {
+class MemoryGame(private val context: Context,  private val flipperCard: FlipperCard) {
 
    var board: List<List<GameMemoryItem>>
      private set
@@ -24,8 +23,6 @@ class MemoryGame(private val context: Context, level: Level) {
 
     lateinit var  views:List<View>
      private set
-
-    private val flipperCard: FlipperCard
 
     var onGameOverListener: GameOverListener?
      get() = flipperCard.onGameOverListener
@@ -44,11 +41,9 @@ class MemoryGame(private val context: Context, level: Level) {
               Constants.outAnimationResourceId,
               Constants.inAnimationResourceId
           )
-          board = cartSelector.buildCartSelection(level)
+          board = cartSelector.buildCartSelection(flipperCard.level)
 
           buildViews()
-
-         flipperCard = FlipperCard(level)
     }
 
     fun revealAllCards() {

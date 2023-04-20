@@ -14,7 +14,7 @@ import com.example.myapplication.events.QueueUnMatchListener
 import com.example.myapplication.models.Box
 import java.util.function.Consumer
 
-class FlipperCard(private val level: Level, private val queueAnalyzer: QueueAnalyzer = QueueAnalyzer() ) {
+class FlipperCard(val level: Level, private val queueAnalyzer: QueueAnalyzer = QueueAnalyzer() ) {
 
      var matches: MutableSet<Int> = mutableSetOf()
      private set

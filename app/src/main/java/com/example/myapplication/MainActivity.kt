@@ -13,6 +13,7 @@ import com.example.myapplication.adapters.GameBoardArrayAdapter
 import com.example.myapplication.adapters.LevelArrayAdapter
 import com.example.myapplication.events.GameOverListener
 import com.example.myapplication.events.MatchCardsListener
+import com.example.myapplication.managers.FlipperCard
 import com.example.myapplication.managers.MemoryGame
 import com.example.myapplication.models.Level
 
@@ -60,7 +61,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun buildCartSelection(level: Level) {
 
-       memoryGame = MemoryGame(this,level)
+       memoryGame = MemoryGame(this, FlipperCard(level))
 
        memoryGame.onGameOverListener = object : GameOverListener {
 

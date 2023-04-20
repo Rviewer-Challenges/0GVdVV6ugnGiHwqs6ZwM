@@ -10,6 +10,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import com.example.myapplication.constants.Constants
 import com.example.myapplication.managers.CartSelector
+import com.example.myapplication.managers.FlipperCard
 import com.example.myapplication.managers.MemoryGame
 import com.example.myapplication.models.Level
 import com.example.myapplication.selectors.SelectorIndex
@@ -80,6 +81,7 @@ class MemoryGameTest {
 
        mockStaticLayoutInflater.`when`<LayoutInflater> { LayoutInflater.from(any(Context::class.java)) }
            .thenReturn(mockLayoutInflater)
+
     }
 
     @After
@@ -93,7 +95,9 @@ class MemoryGameTest {
 
         mockedImageViewConstructor.use {
 
-            memoryGame = MemoryGame( mockContext , level )
+            val flipperCard = FlipperCard(level)
+
+            memoryGame = MemoryGame( mockContext , flipperCard )
 
             assertEquals(memoryGame.board.size, level.getRowCount())
 
@@ -113,8 +117,10 @@ class MemoryGameTest {
         `when`(mockView.findViewById<FrameLayout>(Constants.cardBackResourceId))
             .doReturn(mockFrameLayout)
 
-         mockedImageViewConstructor.use {
-            memoryGame = MemoryGame(mockContext, level)
+        val flipperCard = FlipperCard(level)
+
+        mockedImageViewConstructor.use {
+            memoryGame = MemoryGame(mockContext, flipperCard)
 
             memoryGame.revealAllCards()
 
